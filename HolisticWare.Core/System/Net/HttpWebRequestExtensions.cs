@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace System.Net
 {
@@ -71,6 +72,48 @@ namespace System.Net
 			}
 
 			return returnValue;
+		}
+
+		public static async Task<Stream> GetRequestStreamAsync (this HttpWebRequest request)
+		{
+			Stream stream = await Task.Factory.FromAsync<Stream>
+												(
+												  request.BeginGetRequestStream, 
+												  request.EndGetRequestStream, 
+												  null
+												);
+			return stream;
+		}
+
+		/// <summary>
+		/// http://www.wenda.io/questions/2465493/pcl-httpwebrequest-user-agent-on-wpf.html
+		/// </summary>
+		/// <param name="Request">Request.</param>
+		/// <param name="Header">Header.</param>
+		/// <param name="Value">Value.</param>
+		public static void SetHeader(this HttpWebRequest hw_request, string header_key, string header_value) 
+		{
+			// Retrieve the property through reflection.
+		    Type t =  hw_request.GetType();
+			PropertyInfo pi = RuntimeReflectionExtensions.GetRuntimeProperty
+								(
+								  hw_request.GetType()
+								, header_key.Replace("-", string.Empty)
+								);
+
+	    	// Check if the property is available.
+    		if (pi != null) 
+    		{
+        		// Set the value of the header.
+        		pi.SetValue(hw_request, header_value, null);
+    		} 
+    		else
+    		{
+        		// Set the value of the header.
+        		hw_request.Headers[header_key] = header_value;
+    		}
+
+    		return;
 		}
 
 	}

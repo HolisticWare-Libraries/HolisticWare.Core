@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HolisticWare.Core
+namespace Core
 {
 	internal delegate void TimerCallback(object state);
 

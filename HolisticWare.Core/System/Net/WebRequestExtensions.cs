@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Net
+namespace System.Net
 {
 	/// <summary>
 	/// Install-Package Microsoft.Net.Http 
