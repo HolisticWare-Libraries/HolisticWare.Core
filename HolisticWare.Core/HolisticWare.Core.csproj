@@ -41,11 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Decimal.cs" />
-    <Compile Include="System\Net\HttpWebRequestExtensions.cs" />
-    <Compile Include="System\Net\WebRequestExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\DecimalExtensions.cs" />
-    <Compile Include="System\Net\Http.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
