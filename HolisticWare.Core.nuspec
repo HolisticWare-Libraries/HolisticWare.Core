@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata minClientVersion="2.8.1">
+		<id>HolisticWare.Core.Json</id>
+		<version>1.0.0</version>
+		<title>System.Json package</title>
+		<authors>moljac@HolisticWare</authors>
+		<owners>moljac@HolisticWare</owners>
+		<projectUrl>http://github.com/moljac/HolisticWare.Core.Json</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>
+		 System.Json cross platform package (plugin) to replace code usage in
+		 various projects like Xamarin.Auth
+		</description>
+		<summary>
+			System.Json was initally implemented for Silverlight. 
+		</summary>
+		<tags>
+			plugin, plugin for xamarin, portable class library, pcl, bait and switch
+			xamarin, pcl, xamarin portable, 
+			android, xamarin.forms, ios, xamarin.ios, xamarin.android, 
+			xamarin.mac, monomac, mac
+			windows phone, winphone, wp8, winrt
+		</tags>
+		<dependencies>
+			<!--
+			<dependency id="log4net" version="[1.2,1.2.11)" />
+			-->
+		</dependencies>
+	</metadata>
+	<files>
+		<!--
+			Core - Portable 
+		-->
+		<file 
+			src="HolisticWare.Core.Json\bin\Release\HolisticWare.Core.Json.dll" 
+			target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\HolisticWare.Core.Json.dll" 
+			/>
+
+		<!--
+			Windows Phone 8 Silverlight
+			<file 
+				src="HolisticWare.Core.Json.WindowsPhone8\bin\Release\HolisticWare.Core.Json.dll" 
+				target="lib\wp8\HolisticWare.Core.Json.dll" 
+				/>
+		-->
+
+		<!--
+			Windows Phone 8.1
+
+			<file 
+				src="HolisticWare.Core.Json.WindowsPhone81\bin\Release\HolisticWare.Core.Json.dll" 
+				target="lib\wpa81\HolisticWare.Core.Json.dll" 
+				/>
+		-->
+
+
+		<!--
+			Windows Store
+			
+			<file 
+				src="HolisticWare.Core.Json.WindowsStore\bin\Release\HolisticWare.Core.Json.dll" 
+				target="lib\win8\HolisticWare.Core.Json.dll" />
+		-->
+
+
+		<!--
+			Xamarin.Android
+
+			<file 
+				src="HolisticWare.Core.Json.Android\bin\Release\HolisticWare.Core.Json.dll" 
+				target="lib\MonoAndroid10\HolisticWare.Core.Json.dll" 
+				/>
+		-->
+
+		<!--
+			Xamarin.iOS
+			
+			<file 
+				src="HolisticWare.Core.Json.iOS\bin\iPhone\Release\HolisticWare.Core.Json.dll" 
+				target="lib\MonoTouch10\HolisticWare.Core.Json.dll" 
+				/>
+		-->
+     
+		<!--
+			Xamarin.iOS Unified
+
+			<file 
+				src="HolisticWare.Core.Json.iOSUnified\bin\iPhone\Release\HolisticWare.Core.Json.dll" 
+				target="lib\Xamarin.iOS10\HolisticWare.Core.Json.dll" 
+				/>
+		-->
+
+   </files>
+</package>
