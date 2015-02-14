@@ -199,6 +199,8 @@ FakesAssemblies/
 **/packages/
 **/.nuget/
 
+**/*data*
+**/*secured*
 **/*.data.*
 **/*.data.bat
 **/*.data.sh
