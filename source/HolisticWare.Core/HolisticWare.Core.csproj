@@ -45,6 +45,7 @@
     <Compile Include="System\DecimalExtensions.cs" />
     <Compile Include="System\SemanticVersion.cs" />
     <Compile Include="System\Timer.cs" />
+    <Compile Include="Core\ToStringSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
