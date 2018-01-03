@@ -7,5 +7,8 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);.DS_Store</DefaultItemExcludes>
   </PropertyGroup>
 
-  <Import Project="..\HolisticWare_Core.Common.Shared\HolisticWare_Core.Common.Shared.projitems" Label="Shared" Condition="Exists('..\HolisticWare_Core.Common.Shared\HolisticWare_Core.Common.Shared.projitems')" />
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />
+  </ItemGroup>
+  <Import Project="..\HolisticWare.Core\HolisticWare.Core.projitems" Label="Shared" Condition="Exists('..\HolisticWare.Core\HolisticWare.Core.projitems')" />
 </Project>
