@@ -2,13 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
-    <RootNamespace>HolisticWare_Core</RootNamespace>
+    <RootNamespace>Core</RootNamespace>
     <AssemblyName>HolisticWare_Core</AssemblyName>
     <DefaultItemExcludes>$(DefaultItemExcludes);.DS_Store</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
   </ItemGroup>
   <Import Project="..\HolisticWare.Core\HolisticWare.Core.projitems" Label="Shared" Condition="Exists('..\HolisticWare.Core\HolisticWare.Core.projitems')" />
 </Project>
