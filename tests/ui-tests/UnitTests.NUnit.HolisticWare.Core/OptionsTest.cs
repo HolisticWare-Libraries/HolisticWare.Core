@@ -30,7 +30,10 @@ namespace UnitTests.NUnit.HolisticWare.Core
 
                 foreach(Option o in list_options)
                 {
-                    Console.WriteLine($"Option.Content = {o.Content}");
+                    Console.WriteLine($"Option.Content  = {o.Content}");
+                    Console.WriteLine($"Option.Key      = {o.Key}");
+                    Console.WriteLine($"Option.Value    = {o.Value}");
+                    Console.WriteLine($"Option.Values   = {o.Values.ToString("L")}");
                 }
             }
 
