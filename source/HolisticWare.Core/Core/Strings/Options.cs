@@ -41,7 +41,7 @@ namespace Core.Strings
             string[] options_textual = content_textual.Split
                                                         (
                                                             separators,
-                                                            StringSplitOptions.None
+                                                            StringSplitOptions.RemoveEmptyEntries
                                                         );
 
             if (options_textual != null)
@@ -49,11 +49,7 @@ namespace Core.Strings
                 retval = new List<Option>();
                 foreach(string ot in options_textual)
                 {
-                    Option o = new Option()
-                    {
-                        Content = ot
-                    };
-
+                    Option o = new Option(ot);
                     retval.Add(o);
                 }
             }
