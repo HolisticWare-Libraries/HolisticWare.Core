@@ -32,7 +32,6 @@ using Core.Strings;
 
 namespace UnitTests.NUnit.HolisticWare.Core
 {
-    [TestFixture()]
     public class Test
     {
         [Test()]

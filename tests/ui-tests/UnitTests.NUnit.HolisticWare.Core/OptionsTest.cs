@@ -7,7 +7,6 @@ using System.Collections.Generic;
 
 namespace UnitTests.NUnit.HolisticWare.Core
 {
-    [TestFixture()]
     public class OptionsTest
     {
         [Test()]
@@ -18,7 +17,15 @@ namespace UnitTests.NUnit.HolisticWare.Core
                 "cs=new,public",
                 "cs=new,public arg1=2 arg2=3 arg3=2,5 ",
                 "cs=new,public arg1:2 arg2=3 arg3=2,5 ",
+                "cs=new,public arg1:2 arg2=3 arg3=2 5 ",
+                "cs=new,public arg1=2 arg2=3 arg3=2;5 ",
+                "cs=new,public arg1:2 arg2=3 arg3=2;5 ",
+                "cs=new,public arg1:2 arg2=3 arg3=2 5 ",
+                "cs oneliner=true",
+                "cs=new,public arg1=2 arg2=3 arg3=2,5 ",
                 "cs=new,public arg1:2 arg2=3 arg3=2,5 ",
+
+                "cs=new,public arg1:2 arg2=3 arg3=2, ",
             };
 
             foreach (string options_string in options_strings)
