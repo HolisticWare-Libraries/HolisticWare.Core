@@ -14,8 +14,19 @@ namespace Core.Strings
                                             StringSplitOptions.RemoveEmptyEntries
                                         );
 
-            this.Key = key_value[0];
-            this.Value = key_value[1];
+            switch(key_value.Length)
+            {
+                case 1:
+                    this.Key = key_value[0];
+                    this.Value = key_value[0];
+                    break;
+                case 2:
+                    this.Key = key_value[0];
+                    this.Value = key_value[1];
+                    break;
+                default:
+                    throw new InvalidOperationException($"Unable to parse {nameof(content)}");
+            }
 
             this.Values = this.Value.Split
                                         (
