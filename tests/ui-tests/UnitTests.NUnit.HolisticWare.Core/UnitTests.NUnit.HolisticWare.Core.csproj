@@ -31,7 +31,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="ToStringFormattableTests.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="OptionsTest.cs" />
   </ItemGroup>
