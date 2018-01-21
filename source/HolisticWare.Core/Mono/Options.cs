@@ -734,18 +734,18 @@ namespace Mono.Options
             {                
                 return false;
             }
-#if !NETSTANDARD1_0
+            #if !NETSTANDARD1_0
             replacement = ArgumentSource.GetArgumentsFromFile(value.Substring(1));
-#endif
+            #endif
             return true;
         }
     }
 #endif
 
-#if !NETSTANDARD1_0 && !PCL
+    #if !NETSTANDARD1_0 && !PCL
     [Serializable]
-#endif
-        public class OptionException : Exception
+    #endif
+    public class OptionException : Exception
     {
         private string option;
 
