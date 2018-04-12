@@ -57,7 +57,9 @@ namespace System
     public partial interface IConvertible
     {
 
-        //TypeCode GetTypeCode(); // NetStandard 1.1
+        #if NETSTANDARD1_1
+        TypeCode GetTypeCode(); // NetStandard 1.1
+        #endif
 
         bool ToBoolean(IFormatProvider provider);
         byte ToByte(IFormatProvider provider);

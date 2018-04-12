@@ -19,7 +19,7 @@ namespace Core
 		/// <returns></returns>
 		public static System.Decimal Round(System.Decimal d, int digits)
 		{
-			return Math.Round(d, digits);
+			return System.Math.Round(d, digits);
 		}
 	}
 }
