@@ -47,6 +47,39 @@ Running Cake to Build targets
 */
 #addin nuget:?package=Cake.Git
 
+string target = null;
+
+try
+{
+    target = Argument<string>("target");
+}
+catch (System.Exception)
+{    
+    StringBuilder sb = new StringBuilder();
+    sb.AppendLine($"usage:");
+    if (IsRunningOnWindows())
+    {
+        sb.AppendLine($@".\tools\Cake\Cake.exe clone.cake --target=externals-git-clone");
+    }
+    else
+    {        
+        sb.AppendLine($@"mono ./tools/Cake/Cake.exe clone.cake --target=externals-git-clone");
+    }
+    sb.AppendLine(Environment.NewLine);
+    Information(sb.ToString());
+    
+    Information($"target - not set!");
+    Information($"         target = {target}");
+    Information($"setting  target = externals-git-clone");
+    target = "externals-git-clone";
+}
+finally
+{
+    Information($"target = {target}");
+    target = "externals-git-clone";
+}
+
+
 Dictionary<string, string> repositories = new Dictionary<string, string>
 {
     {
@@ -128,4 +161,13 @@ Task("externals-git-clone")
     }
 );
 
-RunTarget("externals-git-clone");
+Task("Default")
+.Does
+(
+    () =>
+    {
+        Information("Hi");
+    }
+);
+
+RunTarget(target);
