@@ -83,6 +83,10 @@ finally
 Dictionary<string, string> repositories = new Dictionary<string, string>
 {
     {
+        "00-HWC.Ideas",
+        "https://gitlab.com/holisticware-components/HolisticWare.Core.Ideas.git"
+    },
+    {
         "01-HWC.Platforms",
         "https://github.com/moljac/HolisticWare.Core.Platforms.git"
     },
