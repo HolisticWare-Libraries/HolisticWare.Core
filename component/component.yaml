@@ -1,0 +1,39 @@
+version: "5.3.0"
+name: HolisticWare_Core
+id: HolisticWare_Core
+publisher:  HolisticWare
+publisher-url: http://holisticware.net
+src-url: https://github.com/holisticware
+summary: HolisticWare_Core component
+icons: 
+  - ./icons/icon_128x128.png
+  - ./icons/icon_512x512.png
+details: ./Details.md
+license: ../License.md
+getting-started: ./GettingStarted.md
+
+is_shell: true
+no_build: true
+local-nuget-repo: ../output/
+
+libraries:
+  net4:
+    - ../output/net4/HolisticWare_Core.dll
+    
+packages:
+  net4:
+    - HolisticWare_Core, Version=5.3.0
+
+samples:
+  - name: "HolisticWare_Core Sample"
+    path: ../samples/HolisticWare_Core.Samples.sln
+    removeProjects:
+      - HolisticWare_Core
+    installNuGets:
+      - project: HolisticWare_Core.Sample
+        packages:
+          - HolisticWare_Core
+
+additional-files:
+  - source: "../External-Dependency-Info.txt"
+    destination: "THIRD-PARTY-NOTICES.txt"
