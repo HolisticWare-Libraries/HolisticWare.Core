@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard1.1</TargetFramework>
     <RootNamespace>Core</RootNamespace>
     <AssemblyName>HolisticWare_Core</AssemblyName>
     <DefaultItemExcludes>$(DefaultItemExcludes);.DS_Store</DefaultItemExcludes>
@@ -17,5 +17,10 @@
     <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />
     <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Reflection" Version="4.3.0" />
+    <PackageReference Include="System.Memory" Version="4.5.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mono\" />
+    <Folder Include="System\" />
   </ItemGroup>
 </Project>

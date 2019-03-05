@@ -484,7 +484,6 @@ namespace Core
 					//mc++ ver.Build = str;
 					//mc+ ver.Patch = str;
 					throw new NotImplementedException("Build in SemVer?");
-					break;
 			}
 
 			result = ver;
