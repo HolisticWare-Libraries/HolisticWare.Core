@@ -18,4 +18,5 @@
     <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Reflection" Version="4.3.0" />
   </ItemGroup>
+  <Import Project="..\HolisticWare.Core\HolisticWare.Core.projitems" Label="Shared" Condition="Exists('..\HolisticWare.Core\HolisticWare.Core.projitems')" />
 </Project>
