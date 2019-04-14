@@ -1,0 +1,43 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# https://docs.microsoft.com/en-us/visualstudio/mac/editorconfig
+# https://editorconfig.org/#supported-properties
+# https://www.jetbrains.com/help/resharper/EditorConfig_Index.html
+
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+charset = utf-8
+indent_size=4
+trim_trailing_whitespace = true
+
+[*.cs]
+csharp_new_line_before_open_brace = none
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.{js,py}]
+
+# 4 space indentation
+[*.py]
+indent_size = 4
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
+
+# Indentation override for all Cake under ./ (root) directory
+[./**.cake]
+indent_style = space
+indent_size = 4
+
+# Matches the exact files either package.json or .travis.yml
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
