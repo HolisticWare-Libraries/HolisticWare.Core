@@ -1,15 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30524.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Core.netstandard10", "HolisticWare.Core.netstandard10\HolisticWare.Core.netstandard10.csproj", "{AAC41B7E-91C6-4CC2-B0DC-12C7B5A413A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolisticWare.Core.netstandard10", "HolisticWare.Core.netstandard10\HolisticWare.Core.netstandard10.csproj", "{AAC41B7E-91C6-4CC2-B0DC-12C7B5A413A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Core.netstandard11", "HolisticWare.Core.netstandard11\HolisticWare.Core.netstandard11.csproj", "{E041B996-7DAC-41FC-A538-757482195BBF}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HolisticWare.Core.netstandard10-shared", "HolisticWare.Core.netstandard10-shared\HolisticWare.Core.netstandard10-shared.shproj", "{D9C95725-5047-492A-AE33-052D970E74B1}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HolisticWare.Core", "HolisticWare.Core\HolisticWare.Core.shproj", "{D9C95725-5047-492A-AE33-052D970E74B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolisticWare.Core.netstandard11", "HolisticWare.Core.netstandard11\HolisticWare.Core.netstandard11.csproj", "{E041B996-7DAC-41FC-A538-757482195BBF}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		HolisticWare.Core.netstandard10-shared\HolisticWare.Core.netstandard10-shared.projitems*{aac41b7e-91c6-4cc2-b0dc-12c7b5a413a9}*SharedItemsImports = 5
+		HolisticWare.Core.netstandard10-shared\HolisticWare.Core.netstandard10-shared.projitems*{d9c95725-5047-492a-ae33-052d970e74b1}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -23,5 +27,11 @@ Global
 		{E041B996-7DAC-41FC-A538-757482195BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E041B996-7DAC-41FC-A538-757482195BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E041B996-7DAC-41FC-A538-757482195BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FAF56F7-EFDD-4476-8F9F-55583C4E6908}
 	EndGlobalSection
 EndGlobal
