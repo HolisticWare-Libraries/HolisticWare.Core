@@ -24,9 +24,6 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\source\HolisticWare.Core.netstandard10\HolisticWare.Core.netstandard10.csproj" />
-  </ItemGroup>
   <Choose>
     <When Condition="! exists('..\..\..\..\source\HolisticWare.Core.Math.Statistics.Descriptive.Sequential.NetStandard10\HolisticWare.Core.Math.Statistics.Descriptive.Sequential.NetStandard10.csproj')">
       <!-- nuget packages (dll) refs -->

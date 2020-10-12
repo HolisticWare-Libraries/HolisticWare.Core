@@ -203,12 +203,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\source\HolisticWare.Core.netstandard10\HolisticWare.Core.netstandard10.csproj">
-      <Project>{AAC41B7E-91C6-4CC2-B0DC-12C7B5A413A9}</Project>
-      <Name>HolisticWare.Core.netstandard10</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>

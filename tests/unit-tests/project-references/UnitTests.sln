@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30524.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library-source", "library-source", "{56123580-99E9-45AC-8300-ABF8EE1D021E}"
 EndProject
@@ -33,27 +33,34 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.NUnit.XamarinAndr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.NUnit.XamarinIOS", "netstandard11\UnitTests.NUnit.XamarinIOS\UnitTests.NUnit.XamarinIOS.csproj", "{8DC2AC47-4203-4E33-9622-6861FC540D50}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Tests.CommonShared.netstandard11", "..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.shproj", "{13AB4AD2-D077-48E0-B6F2-791BC25EB413}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolisticWare.Core.netstandard10", "..\..\..\source\HolisticWare.Core.netstandard10\HolisticWare.Core.netstandard10.csproj", "{AAC41B7E-91C6-4CC2-B0DC-12C7B5A413A9}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HolisticWare.Core.netstandard10-shared", "..\..\..\source\HolisticWare.Core.netstandard10-shared\HolisticWare.Core.netstandard10-shared.shproj", "{D9C95725-5047-492A-AE33-052D970E74B1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolisticWare.Core.netstandard11", "..\..\..\source\HolisticWare.Core.netstandard11\HolisticWare.Core.netstandard11.csproj", "{E041B996-7DAC-41FC-A538-757482195BBF}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Tests.CommonShared.netstandard11", "..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.shproj", "{13AB4AD2-D077-48E0-B6F2-791BC25EB413}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\..\Tests.CommonShared\Tests.CommonShared.projitems*{04f3d823-abea-46dd-9ec2-56c08ca074db}*SharedItemsImports = 4
 		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{04f3d823-abea-46dd-9ec2-56c08ca074db}*SharedItemsImports = 4
-		..\..\Tests.CommonShared\Tests.CommonShared.projitems*{13ab4ad2-d077-48e0-b6f2-791bc25eb413}*SharedItemsImports = 13
-		..\..\Tests.CommonShared\Tests.CommonShared.projitems*{454143fe-45e8-48ce-ae04-71bfb0b413db}*SharedItemsImports = 4
+		..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.projitems*{13ab4ad2-d077-48e0-b6f2-791bc25eb413}*SharedItemsImports = 13
 		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{454143fe-45e8-48ce-ae04-71bfb0b413db}*SharedItemsImports = 4
-		..\..\Tests.CommonShared\Tests.CommonShared.projitems*{6144c0cb-53eb-4bfd-b30c-62566c1be10a}*SharedItemsImports = 4
 		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{6144c0cb-53eb-4bfd-b30c-62566c1be10a}*SharedItemsImports = 4
-		..\..\Tests.CommonShared\Tests.CommonShared.projitems*{62b34e6c-8bcc-4484-a290-dc7bcbe0f6d4}*SharedItemsImports = 4
+		..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.projitems*{62b34e6c-8bcc-4484-a290-dc7bcbe0f6d4}*SharedItemsImports = 4
 		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{62b34e6c-8bcc-4484-a290-dc7bcbe0f6d4}*SharedItemsImports = 4
-		..\..\Tests.CommonShared\Tests.CommonShared.projitems*{8dc2ac47-4203-4e33-9622-6861fc540d50}*SharedItemsImports = 4
+		..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.projitems*{74d8294a-df4e-43b8-b4e3-d25c7e834cb6}*SharedItemsImports = 5
+		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{74d8294a-df4e-43b8-b4e3-d25c7e834cb6}*SharedItemsImports = 5
+		..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.projitems*{8dc2ac47-4203-4e33-9622-6861fc540d50}*SharedItemsImports = 4
 		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{8dc2ac47-4203-4e33-9622-6861fc540d50}*SharedItemsImports = 4
-		..\..\Tests.CommonShared\Tests.CommonShared.projitems*{ab906ca7-8f41-4766-8c39-535016880452}*SharedItemsImports = 4
+		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{9f02c2a3-1007-424c-9b59-2de1cd8aa093}*SharedItemsImports = 5
+		..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.projitems*{aa1ac605-2b18-43f7-8c74-3df1a9105719}*SharedItemsImports = 5
+		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{aa1ac605-2b18-43f7-8c74-3df1a9105719}*SharedItemsImports = 5
+		..\..\..\source\HolisticWare.Core.netstandard10-shared\HolisticWare.Core.netstandard10-shared.projitems*{aac41b7e-91c6-4cc2-b0dc-12c7b5a413a9}*SharedItemsImports = 5
+		..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.projitems*{ab906ca7-8f41-4766-8c39-535016880452}*SharedItemsImports = 4
 		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{ab906ca7-8f41-4766-8c39-535016880452}*SharedItemsImports = 4
+		..\..\..\source\HolisticWare.Core.netstandard10-shared\HolisticWare.Core.netstandard10-shared.projitems*{d9c95725-5047-492a-ae33-052d970e74b1}*SharedItemsImports = 13
+		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{deee1af9-3c2b-43e9-a0fc-fd8006354de3}*SharedItemsImports = 5
 		..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems*{e390f6da-9f4b-43a4-8abf-f9434df2c70d}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -225,9 +232,10 @@ Global
 		{62B34E6C-8BCC-4484-A290-DC7BCBE0F6D4} = {070E804F-1682-429A-85BA-49B429C34113}
 		{8DC2AC47-4203-4E33-9622-6861FC540D50} = {070E804F-1682-429A-85BA-49B429C34113}
 		{AAC41B7E-91C6-4CC2-B0DC-12C7B5A413A9} = {56123580-99E9-45AC-8300-ABF8EE1D021E}
+		{D9C95725-5047-492A-AE33-052D970E74B1} = {56123580-99E9-45AC-8300-ABF8EE1D021E}
 		{E041B996-7DAC-41FC-A538-757482195BBF} = {56123580-99E9-45AC-8300-ABF8EE1D021E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {440F697D-77CA-4EA5-9C13-585B4998A64A}
+		SolutionGuid = {8FAF56F7-EFDD-4476-8F9F-55583C4E6908}
 	EndGlobalSection
 EndGlobal

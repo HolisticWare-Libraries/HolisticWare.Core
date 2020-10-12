@@ -216,12 +216,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\source\HolisticWare.Core.netstandard11\HolisticWare.Core.netstandard11.csproj">
-      <Project>{E041B996-7DAC-41FC-A538-757482195BBF}</Project>
-      <Name>HolisticWare.Core.netstandard11</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

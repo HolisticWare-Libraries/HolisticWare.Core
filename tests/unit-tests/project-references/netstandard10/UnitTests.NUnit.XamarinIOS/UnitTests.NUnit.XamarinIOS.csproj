@@ -120,12 +120,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="UnitTestAppDelegate.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\source\HolisticWare.Core.netstandard10\HolisticWare.Core.netstandard10.csproj">
-      <Project>{AAC41B7E-91C6-4CC2-B0DC-12C7B5A413A9}</Project>
-      <Name>HolisticWare.Core.netstandard10</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="..\..\..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems" Label="Shared" Condition="Exists('..\..\..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

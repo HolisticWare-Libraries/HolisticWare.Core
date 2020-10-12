@@ -129,12 +129,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="UnitTestAppDelegate.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\source\HolisticWare.Core.netstandard11\HolisticWare.Core.netstandard11.csproj">
-      <Project>{E041B996-7DAC-41FC-A538-757482195BBF}</Project>
-      <Name>HolisticWare.Core.netstandard11</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="..\..\..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.projitems" Label="Shared" Condition="Exists('..\..\..\..\Tests.CommonShared.netstandard11\Tests.CommonShared.netstandard11.projitems')" />
   <Import Project="..\..\..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems" Label="Shared" Condition="Exists('..\..\..\UnitTests.Common.Utils.Shared\UnitTests.Common.Utils.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
