@@ -17,8 +17,24 @@ charset = utf-8
 indent_size=4
 trim_trailing_whitespace = true
 
+# https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference?view=vs-2019
 [*.cs]
-csharp_new_line_before_open_brace = none
+# New line preferences
+csharp_new_line_before_catch = true
+csharp_new_line_before_else = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_open_brace = all
+csharp_new_line_between_query_expression_clauses = true
+# Preprocessor Directives - Indent #if, #else, #elif, #endif (C#)
+csharp_indent_preprocessor_if = true
+# Preprocessor Directives - Indent other preprocessor directives (C#)
+csharp_indent_preprocessor_other  = true	
+# Preprocessor Directives - Indent #region, #endregion (C#)
+csharp_indent_preprocessor_region = true
+
+
 
 # Matches multiple files with brace expansion notation
 # Set default charset
