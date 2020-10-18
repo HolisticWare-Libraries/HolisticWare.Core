@@ -34,8 +34,5 @@
     <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3'">
         <PackageReference Include="System.Memory" Version="4.5.4" />
     </ItemGroup>
-    <ItemGroup>
-      <Folder Include="netstandard1.0\System\" />
-    </ItemGroup>
 
 </Project>
