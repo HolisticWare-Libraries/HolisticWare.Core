@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-
-
 namespace Core
 {
 
@@ -24,7 +22,7 @@ namespace Core
 	/// </remarks>
 	/// <see cref="https://msdn.microsoft.com/en-us/library/system.version%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396"/>
 	/// <see cref="https://gist.github.com/yadyn/959467"/>
-	public class SemanticVersion : IComparable, IFormattable
+	public partial class VersionSemantic : IComparable, IFormattable
 	{
 		/// <summary>
 		/// Gets the major version.
@@ -32,8 +30,11 @@ namespace Core
 		/// <remarks>
 		/// The major version only increments on backwards-incompatible changes.
 		/// </remarks>
-		public int Major { get; private set; }
-
+		public int Major
+        {
+            get;
+            private set;
+        }
 
 		/// <summary>
 		/// Gets the minor version.
@@ -41,8 +42,11 @@ namespace Core
 		/// <remarks>
 		/// The minor version increments on backwards-compatible changes.
 		/// </remarks>
-		public int Minor { get; private set; }
-
+		public int Minor
+        {
+            get;
+            private set;
+        }
 
 		/// <summary>
 		/// Gets the patch version.
@@ -50,8 +54,11 @@ namespace Core
 		/// <remarks>
 		/// The patch version increments when changes include only fixes.
 		/// </remarks>
-		public int Patch { get; private set; }
-
+		public int Patch
+        {
+            get;
+            private set;
+        }
 
 		/// <summary>
 		/// Gets the development stage, if any.
@@ -61,64 +68,95 @@ namespace Core
 		/// Thus it is possible to have a 2.1.0beta where the beta only applies to
 		/// the new changes since 2.0.0.
 		/// </remarks>
-		public DevelopmentStage Stage { get; private set; }
+		public VersionSemanticDevelopmentStage DevelopmentStage
+        {
+            get;
+            private set;
+        }
+
 		/// <summary>
 		/// Gets the development step, provided a development stage was specified.
 		/// </summary>
-		public int? Step { get; private set; }
-
+		public int? Step
+        {
+            get;
+            private set;
+        }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="SemanticVersion"/> class.
+		/// Initializes a new instance of the <see cref="VersionSemantic"/> class.
 		/// </summary>
 		/// <param name="major">The major version.</param>
 		/// <param name="minor">The minor version.</param>
 		/// <param name="patch">The patch version.</param>
-		public SemanticVersion(int major, int minor, int patch)
-		{
-			if (major < 0)
-				throw new ArgumentOutOfRangeException("major", "Version parts cannot be negative.");
-			if (minor < 0)
-				throw new ArgumentOutOfRangeException("minor", "Version parts cannot be negative.");
-			if (patch < 0)
-				throw new ArgumentOutOfRangeException("patch", "Version parts cannot be negative.");
-
+		public VersionSemantic
+                                (
+                                    int major = 0,
+                                    int minor = 0,
+                                    int patch = 0
+                                )
+        {
+            if (major < 0)
+            {
+                throw new ArgumentOutOfRangeException("major", "Version parts cannot be negative.");
+            }
+            if (minor < 0)
+            {
+                throw new ArgumentOutOfRangeException("minor", "Version parts cannot be negative.");
+            }
+            if (patch < 0)
+            {
+                throw new ArgumentOutOfRangeException("patch", "Version parts cannot be negative.");
+            }
 			this.Major = major;
 			this.Minor = minor;
 			this.Patch = patch;
 
-			return;
-		}
+            this.VersionNative = new Version(major, minor, patch);
 
-		public SemanticVersion()
-			:
-			this(0, 0, 0)
-		{
-			return;
+            return;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="SemanticVersion"/> class.
+		/// Initializes a new instance of the <see cref="VersionSemantic"/> class.
 		/// </summary>
 		/// <param name="major">The major version.</param>
 		/// <param name="minor">The minor version.</param>
 		/// <param name="patch">The patch version.</param>
 		/// <param name="stage">The development stage.</param>
-		public SemanticVersion(int major, int minor, int patch, DevelopmentStage stage)
+		public VersionSemantic
+                                (
+                                    int major = 0,
+                                    int minor = 0,
+                                    int patch = 0,
+                                    DevelopmentStage stage
+                                )
 			: this(major, minor, patch)
 		{
-			this.Stage = stage;
+            this.VersionNative = new Version(major, minor, patch);
+
+            this.Stage = stage;
+
+            return;
 		}
+
 		/// <summary>
-		/// Initializes a new instance of the <see cref="SemanticVersion"/> class.
+		/// Initializes a new instance of the <see cref="VersionSemantic"/> class.
 		/// </summary>
 		/// <param name="major">The major version.</param>
 		/// <param name="minor">The minor version.</param>
 		/// <param name="patch">The patch version.</param>
 		/// <param name="stage">The development stage.</param>
 		/// <param name="step">The development step.</param>
-		public SemanticVersion(int major, int minor, int patch, DevelopmentStage stage, int step)
-			: this(major, minor, patch, stage)
+		public VersionSemantic
+                                (
+                                    int major = 0,
+                                    int minor = 0,
+                                    int patch = 0,
+                                    DevelopmentStage stage.
+                                    int step
+                                )
+            : this(major, minor, patch, stage)
 		{
 			if (step < 1)
 				throw new ArgumentOutOfRangeException("step", "Step cannot be negative or zero.");
@@ -135,7 +173,7 @@ namespace Core
 		/// <param name="a">The first operand.</param>
 		/// <param name="b">The second operand.</param>
 		/// <returns>The result of the operator.</returns>
-		public static bool operator ==(SemanticVersion a, SemanticVersion b)
+		public static bool operator ==(VersionSemantic a, VersionSemantic b)
 		{
 			if (ReferenceEquals(a, b)) return true;
 
@@ -150,7 +188,7 @@ namespace Core
 		/// <param name="a">The first operand.</param>
 		/// <param name="b">The second operand.</param>
 		/// <returns>The result of the operator.</returns>
-		public static bool operator !=(SemanticVersion a, SemanticVersion b)
+		public static bool operator !=(VersionSemantic a, VersionSemantic b)
 		{
 			return !(a == b);
 		}
@@ -160,7 +198,7 @@ namespace Core
 		/// <param name="a">The first operand.</param>
 		/// <param name="b">The second operand.</param>
 		/// <returns>The result of the operator.</returns>
-		public static bool operator <(SemanticVersion a, SemanticVersion b)
+		public static bool operator <(VersionSemantic a, VersionSemantic b)
 		{
 			return a.CompareTo(b) < 0;
 		}
@@ -170,7 +208,7 @@ namespace Core
 		/// <param name="a">The first operand.</param>
 		/// <param name="b">The second operand.</param>
 		/// <returns>The result of the operator.</returns>
-		public static bool operator >(SemanticVersion a, SemanticVersion b)
+		public static bool operator >(VersionSemantic a, VersionSemantic b)
 		{
 			return a.CompareTo(b) > 0;
 		}
@@ -195,7 +233,7 @@ namespace Core
 		/// </exception>
 		public int CompareTo(object obj)
 		{
-			SemanticVersion other = (SemanticVersion)obj;
+			VersionSemantic other = (VersionSemantic)obj;
 
 			if (other == null)
 				throw new ArgumentException("obj");
@@ -227,7 +265,7 @@ namespace Core
 		{
 			if (obj == null) return false;
 
-			SemanticVersion semVer = (SemanticVersion) obj;
+			VersionSemantic semVer = (VersionSemantic) obj;
 
 			if (semVer == null) return false;
 
@@ -333,7 +371,7 @@ namespace Core
 		/// <returns>
 		///   <c>true</c> if <paramref name="s" /> was converted successfully; otherwise, <c>false</c>.
 		/// </returns>
-		public static bool TryParse(string s, IFormatProvider provider, out SemanticVersion result)
+		public static bool TryParse(string s, IFormatProvider provider, out VersionSemantic result)
 		{
 			const int major = 0;
 			const int minor = 1;
@@ -353,7 +391,7 @@ namespace Core
 
 			int state = 0;
 			StringBuilder sb = new StringBuilder();
-			SemanticVersion ver = new SemanticVersion();
+			VersionSemantic ver = new VersionSemantic();
 			var tmp = 0;
 			result = null;
 
@@ -487,46 +525,9 @@ namespace Core
 			}
 
 			result = ver;
+
 			return true;
 		} 
 	}
-	/// <summary>
-	/// A list of development stages.
-	/// </summary>
-	public enum DevelopmentStage
-	{
-		/// <summary>
-		/// This is the default or unspecified value.
-		/// </summary>
-		None = 0,
-		/// <summary>
-		/// <para>
-		/// Usually akin to a prototype, this has either very little
-		/// functionality, is a mock-up, or is still otherwise in the
-		/// design stages.
-		/// </para>
-		/// </summary>
-		PreAlpha = 1,
-		/// <summary>
-		/// This typically means that work on major features is still
-		/// ongoing.
-		/// </summary>
-		Alpha = 2,
-		/// <summary>
-		/// This typically means that major features are complete, though
-		/// not necessarily bug-free or tested, and may or may not mean
-		/// that minor features are done or tested.
-		/// </summary>
-		Beta = 3,
-		/// <summary>
-		/// This typically means that all planned features or changes are
-		/// either done or cut, as well as tested and mostly ready.  Code
-		/// should be mainly stable.
-		/// </summary>
-		RC = 4,
-		/// <summary>
-		/// This typically means a shipping or production version.
-		/// </summary>
-		Final = 5
-	}
+
 }

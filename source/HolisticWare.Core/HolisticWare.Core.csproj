@@ -1,21 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard1.1</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;netstandard1.1;netstandard1.3</TargetFrameworks>
+    <!--
     <DefaultItemExcludes>$(DefaultItemExcludes);.DS_Store</DefaultItemExcludes>
-    <RootNamespace>Core</RootNamespace>
-    <AssemblyName>HolisticWare.Core</AssemblyName>
-  </PropertyGroup>
+    -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <RootNamespace>Core.LINQ.Memory</RootNamespace>
+    <AssemblyName>HolisticWare.Core.LINQ.Memory</AssemblyName>
+ </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
-    <PackageReference Include="System.Reflection" Version="4.3.0" />
-  </ItemGroup>
+    <!-- common NuGet package refs that affect all projects -->
+
+    <!-- .NET Standard 1.1 references, compilation flags and build options -->
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.1'">
+        <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD1_1</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.1'">
+        <Compile Include="$(MSBuildProjectDirectory)\netstandard1.1\**\*.cs" />
+    </ItemGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.1'">
+        <PackageReference Include="System.Memory" Version="4.5.4" />
+    </ItemGroup>
+
+    <!-- .NET Standard 1.3 references, compilation flags and build options -->
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3'">
+        <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD1_3</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3'">
+        <Compile Include="$(MSBuildProjectDirectory)\netstandard1.1\**\*.cs" />
+        <Compile Include="$(MSBuildProjectDirectory)\netstandard1.3\**\*.cs" />
+    </ItemGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3'">
+        <PackageReference Include="System.Memory" Version="4.5.4" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="netstandard1.0\System\" />
+    </ItemGroup>
+
 </Project>
