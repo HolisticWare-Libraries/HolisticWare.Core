@@ -27,6 +27,9 @@
   <ItemGroup>
     <None Remove=".DS_Store" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\source\HolisticWare.Core\HolisticWare.Core.csproj" />
+  </ItemGroup>
   <Choose>
     <When Condition="! exists('..\..\..\..\source\HolisticWare.Core.Math.Statistics.Descriptive.Sequential.NetStandard10\HolisticWare.Core.Math.Statistics.Descriptive.Sequential.NetStandard10.csproj')">
       <!-- nuget packages (dll) refs -->

@@ -1,4 +1,6 @@
-﻿#if XUNITusing Xunit;// NUnit aliasesusing Test = Xunit.FactAttribute;using OneTimeSetUp = HolisticWare.Core.Testing.UnitTests.UnitTestsCompatibilityAliasAttribute;// XUnit aliasesusing TestClass = HolisticWare.Core.Testing.UnitTests.UnitTestsCompatibilityAliasAttribute;#elif NUNITusing NUnit.Framework;// MSTest aliasesusing TestInitialize = NUnit.Framework.SetUpAttribute;using TestProperty = NUnit.Framework.PropertyAttribute;using TestClass = HolisticWare.Core.Testing.UnitTests.UnitTestsCompatibilityAliasAttribute;using TestMethod = NUnit.Framework.TestAttribute;using TestCleanup = NUnit.Framework.TearDownAttribute;// XUnit aliasesusing Fact = NUnit.Framework.TestAttribute;#elif MSTESTusing Microsoft.VisualStudio.TestTools.UnitTesting;// NUnit aliasesusing Test = Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute;using OneTimeSetUp = Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute;// XUnit aliasesusing Fact = Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute;#endif#if BENCHMARKDOTNETusing BenchmarkDotNet.Running;using BenchmarkDotNet.Configs;using BenchmarkDotNet.Attributes.Jobs;#elseusing Benchmark = HolisticWare.Core.Testing.BenchmarkTests.Benchmark;using ShortRunJob = HolisticWare.Core.Testing.BenchmarkTests.ShortRunJob;#endifusing System;using System.Collections.Generic;using System.Text;using System.Collections;using System.Linq;using Core;namespace Tests.CommonShared.Core{    [TestClass] // for MSTest - NUnit [TestFixture] and XUnit not needed    //[SimpleJob(launchCount: 1, warmupCount: 3, targetCount: 5, invocationCount: 100, id: "QuickJob")]    [ShortRunJob]    public partial class UnitTestsMemoryWithStringAPI    {        string string_01 = "https://blog.stephencleary.com/2013/10/taskrun-etiquette-and-proper-usage.html";        Memory<char> string_01_as_memory;
+#if XUNITusing Xunit;// NUnit aliasesusing Test = Xunit.FactAttribute;using OneTimeSetUp = HolisticWare.Core.Testing.UnitTests.UnitTestsCompatibilityAliasAttribute;// XUnit aliasesusing TestClass = HolisticWare.Core.Testing.UnitTests.UnitTestsCompatibilityAliasAttribute;#elif NUNITusing NUnit.Framework;// MSTest aliasesusing TestInitialize = NUnit.Framework.SetUpAttribute;using TestProperty = NUnit.Framework.PropertyAttribute;using TestClass = HolisticWare.Core.Testing.UnitTests.UnitTestsCompatibilityAliasAttribute;using TestMethod = NUnit.Framework.TestAttribute;using TestCleanup = NUnit.Framework.TearDownAttribute;// XUnit aliasesusing Fact = NUnit.Framework.TestAttribute;#elif MSTESTusing Microsoft.VisualStudio.TestTools.UnitTesting;// NUnit aliasesusing Test = Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute;using OneTimeSetUp = Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute;// XUnit aliasesusing Fact = Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute;#endif#if BENCHMARKDOTNETusing BenchmarkDotNet.Running;using BenchmarkDotNet.Configs;using BenchmarkDotNet.Attributes.Jobs;#elseusing Benchmark = HolisticWare.Core.Testing.BenchmarkTests.Benchmark;using ShortRunJob = HolisticWare.Core.Testing.BenchmarkTests.ShortRunJob;#endifusing System;using System.Collections.Generic;using System.Text;using System.Collections;using System.Linq;
+
+/*using Core;namespace Tests.CommonShared.Core{    [TestClass] // for MSTest - NUnit [TestFixture] and XUnit not needed    //[SimpleJob(launchCount: 1, warmupCount: 3, targetCount: 5, invocationCount: 100, id: "QuickJob")]    [ShortRunJob]    public partial class UnitTestsMemoryWithStringAPI    {        string string_01 = "https://blog.stephencleary.com/2013/10/taskrun-etiquette-and-proper-usage.html";        Memory<char> string_01_as_memory;
 
         // Error CS8345:
         // Field or auto-implemented property cannot be of type 'Span<char>' unless it is an instance member of
@@ -53,7 +55,7 @@
             string joined = string.Intern();
             string joined = string.IsInterned();
 
-            string joined = string.IsNullOrEmpty()
+            string joined = string.IsNullOrEmpty();
             string joined = string.IsNullOrWhiteSpace();
             string joined = string.Join(",",new string[] { "a", "b"});
             string joined = string.ReferenceEquals();
@@ -70,6 +72,6 @@
 
 
 
-
             return;
-        }    }}
+        }    }}
+*/

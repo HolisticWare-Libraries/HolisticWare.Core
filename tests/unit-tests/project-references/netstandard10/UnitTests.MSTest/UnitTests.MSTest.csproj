@@ -14,12 +14,14 @@
     <DefineConstants>TRACE;MSTEST;RELEASE;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.Memory" Version="4.5.2" />
     <PackageReference Include="Nito.AsyncEx.Tasks" Version="1.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
     <PackageReference Include="Nito.AsyncEx.Context" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\source\HolisticWare.Core\HolisticWare.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

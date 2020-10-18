@@ -9,11 +9,11 @@
     <Import_RootNamespace>Tests.CommonShared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Core\Text\" />
     <Folder Include="$(MSBuildThisFileDirectory)Core\UnitTestsMemoryWithStringAPI\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Core\UnitTestsMemoryWithStringAPI\UnitTestsMemoryWithStringAPI.00.Data.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\UnitTestsMemoryWithStringAPI\UnitTestsMemoryWithStringAPI.01.API.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\VersionSemantic\UnitTests_VersionSemantic.cs" />
   </ItemGroup>
 </Project>
