@@ -3,14 +3,9 @@
 Task("nuget-restore")
     .IsDependentOn("nuget-restore-externals")
     .IsDependentOn("nuget-restore-libs")
-    .Does
-    (
-        () =>
-        {
-            return;
-        }
-    );
-
+    .IsDependentOn("nuget-restore-tests")
+    ;
+    
 Task("nuget-restore-externals")
     .Does
     (
@@ -22,7 +17,60 @@ Task("nuget-restore-externals")
             foreach(FilePath file in files)
             {
                 Information("File: {0}", file);
-                NuGetRestore(file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.ToString()}-packages"
+                        }
+                    );
+            }
+
+            files = GetFiles("./externals-submodules/**/source/*.sln");
+            foreach(FilePath file in files)
+            {
+                Information("File: {0}", file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.ToString()}-packages"
+                        }
+                    );
+            }
+
+            files = GetFiles("./externals/**/source/*.csproj");
+            foreach(FilePath file in files)
+            {
+                Information("File: {0}", file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.GetDirectory()}-packages"
+                        }
+                    );
+            }
+
+            files = GetFiles("./externals-submodules/**/source/*.csproj");
+            foreach(FilePath file in files)
+            {
+                Information("File: {0}", file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.GetDirectory()}-packages"
+                        }
+                    );
             }
 
             return;
@@ -39,13 +87,30 @@ Task("nuget-restore-libs")
             foreach(FilePath file in files)
             {
                 Information("File: {0}", file);
-                NuGetRestore(file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.ToString()}-packages"
+                        }
+                    );
             }
+
             files = GetFiles("./source/**/*.csproj");
             foreach(FilePath file in files)
             {
                 Information("File: {0}", file);
-                NuGetRestore(file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.GetDirectory()}-packages"
+                        }
+                    );
             }
 
             return;
@@ -62,7 +127,30 @@ Task("nuget-restore-samples")
             foreach(FilePath file in files)
             {
                 Information("File: {0}", file);
-                NuGetRestore(file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.ToString()}-packages"
+                        }
+                    );
+            }
+
+            files = GetFiles("./samples/**/*.csproj");
+            foreach(FilePath file in files)
+            {
+                Information("File: {0}", file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.GetDirectory()}-packages"
+                        }
+                    );
             }
 
             return;
@@ -80,7 +168,30 @@ Task("nuget-restore-tests")
             foreach(FilePath file in files)
             {
                 Information("File: {0}", file);
-                NuGetRestore(file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.ToString()}-packages"
+                        }
+                    );
+            }
+
+            files = GetFiles("./tests/**/*.csproj");
+            foreach(FilePath file in files)
+            {
+                Information("File: {0}", file);
+        		DotNetRestore
+                    (
+                        file.ToString(),
+                        new DotNetRestoreSettings
+                        {
+                            // separate folder for nuget packages for analysis
+                            PackagesDirectory = $"{file.GetDirectory()}-packages"
+                        }
+                    );
             }
 
             return;
@@ -93,7 +204,13 @@ public void RestorePackages(string pattern)
 
 	foreach(FilePath file in files)
 	{
-		NuGetRestore(file, new NuGetRestoreSettings { } );
+		DotNetRestore
+                (
+                    file.ToString(), 
+                    new DotNetRestoreSettings 
+                    {                         
+                    } 
+                );
 	}
 
 	return;

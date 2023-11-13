@@ -1,10 +1,14 @@
 //---------------------------------------------------------------------------------------
 Task("unit-tests")
+    .IsDependentOn("nuget-restore-tests")
     .IsDependentOn("libs")
+    .IsDependentOn("nuget-pack")
     .Does
     (
         () =>
         {
+            EnsureDirectoryExists("./output/results/unit-tests/");
+
             try
             {
                 RunTarget("unit-tests-nunit");
@@ -31,10 +35,11 @@ Task("unit-tests")
         }
     );
 
-var reports = Directory("./externals/results/unit-tests/");
+var reports = Directory("/output/results/unit-tests/");
 
 
 Task("unit-tests-nunit")
+    .IsDependentOn("nuget-restore-tests")
     .Does
     (
         () =>
@@ -77,7 +82,7 @@ Task("unit-tests-nunit")
                 UnitTestsNUnitAssemblies,
                 new NUnit3Settings
                 {
-                    OutputFile = "./externals/results/unit-tests/Nunit3.1.txt",
+                    OutputFile = "./output/results/unit-tests/Nunit3.1.txt",
                 }
             );
 
@@ -93,7 +98,7 @@ Task("unit-tests-nunit")
                 UnitTestsNUnitAssemblies,
                 new NUnit3Settings
                 {
-                    OutputFile = "./externals/results/unit-tests/Nunit3.2.txt",
+                    OutputFile = "./output/results/unit-tests/Nunit3.2.txt",
                 }
             );
             return;
@@ -101,6 +106,7 @@ Task("unit-tests-nunit")
     );
 
 Task("unit-tests-xunit")
+    .IsDependentOn("nuget-restore-tests")
     .Does
     (
         () =>
@@ -115,11 +121,11 @@ Task("unit-tests-xunit")
                         Configuration = "Debug",
                     }.WithProperty("DefineConstants", "TRACE;DEBUG;NETCOREAPP2_0;XUNIT")
                 );
-                DotNetCoreTest
+                DotNetTest
                 (
                     "./tests/unit-tests/project-references/UnitTests.XUnit/UnitTests.XUnit.csproj",
                     //"xunit",  "--no-build -noshadow"
-                    new DotNetCoreTestSettings()
+                    new DotNetTestSettings()
                     {
                         ResultsDirectory = reports,
                     }
@@ -147,11 +153,13 @@ Task("unit-tests-xunit")
             {
                 ReportUnit(reports);
             }
-            MoveFile("TestResult.xml", "./externals/results/unit-tests/TestResult.xml");
+
+            MoveFile("TestResult.xml", "./output/results/unit-tests/TestResult.xml");
         }
     );
 
 Task("unit-tests-mstest")
+    .IsDependentOn("nuget-restore-tests")
     .Does
     (
         () =>
@@ -169,14 +177,14 @@ Task("unit-tests-mstest")
                 "./tests/unit-tests/project-references/UnitTests.MSTest/bin/Debug/**/UnitTests.MSTest.dll",
                 new MSTestSettings
                 {
-                    ResultsFile = "./externals/results/unit-tests/MSTest.txt",
+                    ResultsFile = "./output/results/unit-tests/MSTest.txt",
                 }
             );
-            DotNetCoreTest
+            DotNetTest
             (
                 "./tests/unit-tests/project-references/UnitTests.MSTest/UnitTests.MSTest.csproj",
                 //"xunit",  "--no-build -noshadow"
-                new DotNetCoreTestSettings()
+                new DotNetTestSettings()
                 {
                     ResultsDirectory = reports,
                 }
