@@ -6,8 +6,8 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);.DS_Store</DefaultItemExcludes>
     -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-    <RootNamespace>Core.LINQ.Memory</RootNamespace>
-    <AssemblyName>HolisticWare.Core.LINQ.Memory</AssemblyName>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>HolisticWare.Core</AssemblyName>
  </PropertyGroup>
 
     <!-- common NuGet package refs that affect all projects -->
