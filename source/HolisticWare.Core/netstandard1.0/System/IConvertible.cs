@@ -17,10 +17,10 @@
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
 // the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -31,20 +31,20 @@
 //
 
 //
-// Functions Implementing this interface should check out 
-// System.Convert. Most of these methods are implemented 
+// Functions Implementing this interface should check out
+// System.Convert. Most of these methods are implemented
 // there for all these data types.
 //
-// System.Convert has ToType helper method for the object 
+// System.Convert has ToType helper method for the object
 // ToType (Type conversionType, IFormatProvider provider)
 // method. In most cases you can specify your ToType function
-// as calling 
+// as calling
 //
 // public Type value; // value of this data type
 // public object ToType(Type conversionType, IFormatProvider provider) {
 //    Convert.ToType (value, conversionType, provider);
-// } 
-// 
+// }
+//
 // Which is just a wrapper for your ToType methods.
 //
 // See http://lists.ximian.com/archives/public/mono-list/2001-July/000525.html
@@ -54,11 +54,15 @@ using System.Runtime.InteropServices;
 
 namespace System
 {
-    public partial interface IConvertible
+    public partial interface
+                                        IConvertible
     {
 
         #if NETSTANDARD1_1
-        TypeCode GetTypeCode(); // NetStandard 1.1
+        TypeCode
+                                        GetTypeCode
+                                        (
+                                        ); // NetStandard 1.1
         #endif
 
         bool ToBoolean(IFormatProvider provider);

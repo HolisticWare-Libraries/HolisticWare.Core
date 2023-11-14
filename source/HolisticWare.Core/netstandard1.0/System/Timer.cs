@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-	internal delegate void TimerCallback(object state);
+	internal delegate
+        void
+                                        TimerCallback
+                                        (
+                                            object state
+                                        );
 
 	/// <summary>
 	/// Added:
@@ -17,7 +22,11 @@ namespace Core
 	///			System.Runtime
 	///			System.Threading.Tasks
 	/// </summary>
-	public sealed class Timer : System.Threading.CancellationTokenSource, IDisposable
+	public sealed class
+                                        Timer
+                                        :
+                                        System.Threading.CancellationTokenSource,
+                                        IDisposable
 	{
 		internal Timer(TimerCallback callback, object state, TimeSpan dueTime, TimeSpan period)
 		{
@@ -35,8 +44,8 @@ namespace Core
 						}
 					, Tuple.Create(callback, state)
 					, System.Threading.CancellationToken.None
-					, TaskContinuationOptions.ExecuteSynchronously 
-					  | 
+					, TaskContinuationOptions.ExecuteSynchronously
+					  |
 					  TaskContinuationOptions.OnlyOnRanToCompletion
 					, TaskScheduler.Default
 				);

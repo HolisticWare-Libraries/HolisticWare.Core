@@ -5,9 +5,15 @@ using System.Text;
 
 namespace System
 {
-	public static partial class DecimalExtensions
+	public static partial class
+                                        DecimalExtensions
 	{
-		public static System.Decimal Round(this System.Decimal d)
+		public static
+            System.Decimal
+                                        Round
+                                        (
+                                            this System.Decimal d
+                                        )
 		{
 			return System.Math.Round(d);
 		}
