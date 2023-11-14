@@ -7,34 +7,20 @@
             int?
                                         Sum
                                         (
-                                            this System.Memory<int?> Memory
+                                            this System.Memory<int?> memory
                                         )
 		{
-            int? result = 0;
-
-            for(int i = 0; i < Memory.Length; i++)
-            {
-                result += Memory[i];
-            }
-
-            return result;
+            return Span.Sum(memory.Span);
 		}
 
 		public static
             int
                                         Sum
                                         (
-                                            this System.Memory<int> Memory
+                                            this System.Memory<int> memory
                                         )
 		{
-            int result = 0;
-
-            for(int i = 0; i < Memory.Length; i++)
-            {
-                result += Memory[i];
-            }
-
-            return result;
+            return Span.Sum(memory.Span);
 		}
 	}
 }

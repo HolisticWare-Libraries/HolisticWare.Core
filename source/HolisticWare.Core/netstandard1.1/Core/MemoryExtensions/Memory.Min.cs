@@ -7,40 +7,20 @@
             int?
                                         Min
                                         (
-                                            this System.Memory<int?> Memory
+                                            this System.Memory<int?> memory
                                         )
 		{
-            int? result = int.MaxValue;
-
-            for(int i = 0; i < Memory.Length; i++)
-            {
-                if (Memory[i] < result)
-                {
-                    result = Memory[i];
-                }
-            }
-
-            return result / Memory.Length;
+            return Span.Min(memory.Span);
 		}
 
 		public static
             int
                                         Min
                                         (
-                                            this System.Memory<int> Memory
+                                            this System.Memory<int> memory
                                         )
 		{
-            int result = int.MaxValue;
-
-            for(int i = 0; i < Memory.Length; i++)
-            {
-                if (Memory[i] < result)
-                {
-                    result = Memory[i];
-                }
-            }
-
-            return result / Memory.Length;
+            return Span.Min(memory.Span);
 		}
 	}
 }

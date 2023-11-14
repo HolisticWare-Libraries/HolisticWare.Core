@@ -7,34 +7,20 @@
             int?
                                         Average
                                         (
-                                            this System.Memory<int?> Memory
+                                            this System.Memory<int?> memory
                                         )
 		{
-            int? result = 0;
-
-            for(int i = 0; i < Memory.Length; i++)
-            {
-                result += Memory[i];
-            }
-
-            return result / Memory.Length;
+            return Span.Average(memory.Span);
 		}
 
 		public static
             int
                                         Average
                                         (
-                                            this System.Memory<int> Memory
+                                            this System.Memory<int> memory
                                         )
 		{
-            int result = 0;
-
-            for(int i = 0; i < Memory.Length; i++)
-            {
-                result += Memory[i];
-            }
-
-            return result / Memory.Length;
+            return Span.Average(memory.Span);
 		}
 	}
 }
