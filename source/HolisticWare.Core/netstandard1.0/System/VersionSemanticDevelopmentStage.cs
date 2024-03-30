@@ -7,7 +7,8 @@ namespace Core
     /// <summary>
     /// A list of development stages.
     /// </summary>
-    public enum VersionSemanticDevelopmentStage
+    public enum
+                                        VersionSemanticDevelopmentStage
     {
         /// <summary>
         /// This is the default or unspecified value.

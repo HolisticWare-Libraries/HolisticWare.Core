@@ -10,9 +10,35 @@
     <AssemblyName>HolisticWare.Core</AssemblyName>
  </PropertyGroup>
 
-    <!-- common NuGet package refs that affect all projects -->
+    <!--
+        https://apisof.net/
+        common NuGet package refs that affect all projects
+    -->
 
-    <!-- .NET Standard 1.1 references, compilation flags and build options -->
+    <!--
+        .NET Standard  references, compilation flags and build options
+
+        System.Net.Http
+    -->
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.0'">
+        <!--
+            https://github.com/dotnet/sdk/issues/24146
+            https://github.com/dotnet/runtime/issues/59163
+
+        -->
+        <Using Remove="System.Net.Http" />
+    </ItemGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.0'">
+        <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD1_1</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.0'">
+        <Compile Include="$(MSBuildProjectDirectory)\netstandard1.0\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.1'">
+        <PackageReference Include="System.Memory" Version="4.5.4" />
+        <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
+    </ItemGroup>
     <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.1'">
         <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD1_1</DefineConstants>
     </PropertyGroup>

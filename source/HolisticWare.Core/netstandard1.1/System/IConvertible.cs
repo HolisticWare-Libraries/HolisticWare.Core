@@ -58,11 +58,11 @@ namespace System
                                         IConvertible
     {
 
-        #if NETSTANDARD1_1
-        TypeCode
+        #if NETSTANDARD1_3
+        System.TypeCode
                                         GetTypeCode
                                         (
-                                        ); // NetStandard 1.1
+                                        ); // NetStandard 1.3
         #endif
 
         bool ToBoolean(IFormatProvider provider);

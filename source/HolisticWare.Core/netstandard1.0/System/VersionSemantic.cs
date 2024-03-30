@@ -12,17 +12,20 @@ namespace Core
 	/// </summary>
 	/// <remarks>
 	/// See http://semver.org/ for specifications.
-	/// 
+	///
 	///		major.minor[.patch]
-	///		
+	///
 	/// c# Version class
-	/// 
+	///
 	///		major.minor[.build[.revision]]
-	///		
+	///
 	/// </remarks>
 	/// <see cref="https://msdn.microsoft.com/en-us/library/system.version%28v=vs.110%29.aspx?f=255&MSPPError=-2147217396"/>
 	/// <see cref="https://gist.github.com/yadyn/959467"/>
-	public partial class VersionSemantic : IComparable, IFormattable
+	public partial class
+                                        VersionSemantic
+                                        :
+                                        IComparable, IFormattable
 	{
 		/// <summary>
 		/// Gets the major version.
@@ -30,7 +33,9 @@ namespace Core
 		/// <remarks>
 		/// The major version only increments on backwards-incompatible changes.
 		/// </remarks>
-		public int Major
+		public
+            int
+                                        Major
         {
             get;
             private set;
@@ -42,7 +47,9 @@ namespace Core
 		/// <remarks>
 		/// The minor version increments on backwards-compatible changes.
 		/// </remarks>
-		public int Minor
+		public
+            int
+                                        Minor
         {
             get;
             private set;
@@ -54,7 +61,9 @@ namespace Core
 		/// <remarks>
 		/// The patch version increments when changes include only fixes.
 		/// </remarks>
-		public int Patch
+		public
+            int
+                                        Patch
         {
             get;
             private set;
@@ -68,7 +77,9 @@ namespace Core
 		/// Thus it is possible to have a 2.1.0beta where the beta only applies to
 		/// the new changes since 2.0.0.
 		/// </remarks>
-		public VersionSemanticDevelopmentStage DevelopmentStage
+		public
+            VersionSemanticDevelopmentStage
+                                        DevelopmentStage
         {
             get;
             private set;
@@ -124,14 +135,16 @@ namespace Core
 		/// <param name="minor">The minor version.</param>
 		/// <param name="patch">The patch version.</param>
 		/// <param name="stage">The development stage.</param>
-		public VersionSemantic
-                                (
-                                    int major = 0,
-                                    int minor = 0,
-                                    int patch = 0,
-                                    DevelopmentStage stage
-                                )
-			: this(major, minor, patch)
+		public
+                                        VersionSemantic
+                                        (
+                                            int major = 0,
+                                            int minor = 0,
+                                            int patch = 0,
+                                            VersionSemanticDevelopmentStage stage = VersionSemanticDevelopmentStage.None
+                                        )
+			                            :
+                                        this(major, minor, patch)
 		{
             this.VersionNative = new Version(major, minor, patch);
 
@@ -148,15 +161,17 @@ namespace Core
 		/// <param name="patch">The patch version.</param>
 		/// <param name="stage">The development stage.</param>
 		/// <param name="step">The development step.</param>
-		public VersionSemantic
-                                (
-                                    int major = 0,
-                                    int minor = 0,
-                                    int patch = 0,
-                                    DevelopmentStage stage.
-                                    int step
-                                )
-            : this(major, minor, patch, stage)
+		public
+                                        VersionSemantic
+                                        (
+                                            int major = 0,
+                                            int minor = 0,
+                                            int patch = 0,
+                                            VersionSemanticDevelopmentStage stage = VersionSemanticDevelopmentStage.None,
+                                            int step = 0
+                                        )
+                                        :
+                                        this(major, minor, patch, stage)
 		{
 			if (step < 1)
 				throw new ArgumentOutOfRangeException("step", "Step cannot be negative or zero.");
@@ -173,7 +188,13 @@ namespace Core
 		/// <param name="a">The first operand.</param>
 		/// <param name="b">The second operand.</param>
 		/// <returns>The result of the operator.</returns>
-		public static bool operator ==(VersionSemantic a, VersionSemantic b)
+		public static
+            bool
+                                        operator ==
+                                        (
+                                            VersionSemantic a,
+                                            VersionSemantic b
+                                        )
 		{
 			if (ReferenceEquals(a, b)) return true;
 
@@ -231,7 +252,12 @@ namespace Core
 		/// <exception cref="T:System.ArgumentException">
 		/// 	<paramref name="obj"/> is not the same type as this instance.
 		/// </exception>
-		public int CompareTo(object obj)
+		public
+            int
+                                        CompareTo
+                                        (
+                                            object obj
+                                        )
 		{
 			VersionSemantic other = (VersionSemantic)obj;
 
@@ -281,7 +307,7 @@ namespace Core
 		/// Returns a hash code for this instance.
 		/// </summary>
 		/// <returns>
-		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+		/// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
 		/// </returns>
 		public override int GetHashCode()
 		{
@@ -382,9 +408,9 @@ namespace Core
 
 			Func<string, string, bool> compare = (x, y) => string.Equals(x, y, StringComparison.Ordinal);
 			CultureInfo ci = provider as CultureInfo;
-			if (ci != null) compare = 
-				(x, y) 
-				=> 
+			if (ci != null) compare =
+				(x, y)
+				=>
 				// string.Compare(x, y , false, ci) == 0
 				string.Compare(x, y, StringComparison.CurrentCultureIgnoreCase) == 0
 				;
@@ -527,7 +553,7 @@ namespace Core
 			result = ver;
 
 			return true;
-		} 
+		}
 	}
 
 }
