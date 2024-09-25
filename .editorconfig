@@ -323,5 +323,3 @@ dotnet_diagnostic.CA1802.severity = error
 # CA1870: Use a cached 'SearchValues' instance](ca1870.md)
 # Using a cached  <xref:System.Buffers.SearchValues%601> instance is more efficient than passing values to 'IndexOfAny' or 'ContainsAny' directly.
 dotnet_diagnostic.CA1802.severity = error
-
-```
